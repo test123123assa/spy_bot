@@ -85,7 +85,7 @@ def home():
     return "Spy Bot is running!"
 
 if __name__ == '__main__':
-    webhook_url = f"https://YOUR_USERNAME.pythonanywhere.com/webhook/{BOT_TOKEN}"
+    webhook_url = f"https://v373m3nt5.pythonanywhere.com/webhook/{BOT_TOKEN}"
     set_url = f"https://api.telegram.org/bot{BOT_TOKEN}/setwebhook?url={webhook_url}&allowed_updates=[\"message\",\"business_connection\",\"business_message\",\"edited_business_message\",\"deleted_business_messages\"]"
     
     response = requests.get(set_url)
