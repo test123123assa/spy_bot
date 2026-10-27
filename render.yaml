@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: spy-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn bot:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120 --threads 4
+    disk:
+      name: spy-db
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_PATH
+        value: /data/spy.db
+      - key: WEBHOOK_URL
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
